@@ -1,22 +1,49 @@
 [![Build Status](https://travis-ci.com/lorabasics/basicstation.svg?branch=master)](https://travis-ci.com/lorabasics/basicstation)
 
-# LoRa Basics™ Station
+# Balena LoRa Basics™ Station
 
-## Balena instructions
+Deploy a The Things Network (TTN) LoRa gateway running the basic station Semtech Packet Forward protocol. 
+
+This code runs on a Raspberry Pi or balenaFin with a RAK2245 Pi Hat. 
+
+The basicstation protocol enables the LoRa gateways with a reliable and secure communication between the gateways and the cloud and it will standar the Packet Forward protocol used by most of the LoRaWAN operators.
+
+
+## Getting started
+
+### Via [Balena Deploy](https://www.balena.io/docs/learn/deploy/deploy-with-balena-button/)
 
 Running this project is as simple as deploying it to a balenaCloud application. You can do it in just one click by using the button below:
 
-[![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balena-io-playground/basicstation)
+[![](https://www.balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balena-io-playground/basicstation)
+
+### Via [Balena-Cli](https://www.balena.io/docs/reference/balena-cli/)
+
+- Sign up on [balena.io](https://dashboard.balena.io/signup)
+- Create a new application on balenaCloud
+- Clone this repository to your local workspace
+- Using [Balena CLI](https://www.balena.io/docs/reference/cli/), push the code with `balena push <application-name>`
+- See the magic happening, your device is getting updated 🌟Over-The-Air🌟!
 
 
+## Balena LoRa Basics Station Service Variables
 
-* Create your APP <appName>
-* balena push <appName>
+Variable Name | Value | Description | Default
+------------ | ------------- | ------------- | -------------
+**`GW_GPS`** | `STRING` | The camera device node | true or false
+**`GW_ID`** | `STRING` | Flags to pass to mjpg_streamer | -y -n -r 640x480
+**`GW_KEY`** | `STRING` | Ip address of mqtt broker to use | 
+**`GW_RESET_PIN`** | `STRING` | Port the mqtt broker is running on | 
+**`SPI_SPEED`** | `STRING` | Relay name (hostname) used by espurna at the root of topic. E.G ESPURNA-123456, [see documentation](https://github.com/xoseperez/espurna/wiki/Configuration#direct-http-settings-api)  | 
+**`TC_URI`** | `STRING` | Port the mqtt broker is running on |
 
-## ToDo Balena
 
-* need to change the ws URL to wss://lns.eu.thethings.network:443
-* Test that it works
+## Attribution
+
+- This is in part working thanks of the work of Jose Marcelino and Marc Pous.
+- This is in part based on excellent work done by the Balena.io team.
+
+
 
 [Basic Station](https://doc.sm.tc/station) is a LoRaWAN Gateway implementation, including features like
 
