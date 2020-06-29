@@ -39,7 +39,7 @@ Follow instructions, click Add a Device and flash an SD card with that OS image 
 
 ### Via [Balena-Cli](https://www.balena.io/docs/reference/balena-cli/)
 
-If you are a [balena CLI](https://www.balena.io/docs/reference/balena-cli/) expert, feel free to use balena CLI.
+If you are a balena CLI expert, feel free to use balena CLI.
 
 - Sign up on [balena.io](https://dashboard.balena.io/signup)
 - Create a new application on balenaCloud.
@@ -102,6 +102,6 @@ At this moment your The Things Network gateway should be up and running. Check o
 
 ## Attribution
 
-- This is an adaptation of the [Semtech Basics Station repository](https://github.com/lorabasics/basicstation). Documentation [here][Basic Station](https://doc.sm.tc/station).
+- This is an adaptation of the [Semtech Basics Station repository](https://github.com/lorabasics/basicstation). Documentation [here](https://doc.sm.tc/station).
 - This is in part working thanks of the work of Jose Marcelino and Marc Pous.
 - This is in part based on excellent work done by the Balena.io team.
