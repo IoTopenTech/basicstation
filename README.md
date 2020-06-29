@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/lorabasics/basicstation.svg?branch=master)](https://travis-ci.com/lorabasics/basicstation)
-
 # LoRa Basics™ Station using balena.io and RAK2245
 
 This project deploys a TTN LoRa gateway with Basics Station Packet Forward protocol with balena. It runs on a Raspberry Pi or balenaFin with a RAK2245 Pi Hat. 
@@ -28,6 +26,7 @@ The Basics Station protocol enables the LoRa gateways with a reliable and secure
 
 Once all of this is ready, you are able to deploy this repository following instructions below.
 
+## Deploy the code
 
 ### Via [Balena Deploy](https://www.balena.io/docs/learn/deploy/deploy-with-balena-button/)
 
@@ -48,6 +47,8 @@ If you are a [balena CLI](https://www.balena.io/docs/reference/balena-cli/) expe
 - Using [Balena CLI](https://www.balena.io/docs/reference/cli/), push the code with `balena push <application-name>`
 - See the magic happening, your device is getting updated 🌟Over-The-Air🌟!
 
+
+## Configure the Gateway
 
 ### Before configure your LoRa gateway
 
@@ -77,12 +78,14 @@ b827ebFFFEf04f10
 5. Paste the EUI from the Ethernet mac address of the board (calculated above)
 6. Complete the form and click Register gateway.
 
+
+### Balena LoRa Basics Station Service Variables
+
 Once successfully registered, copy the The Things Network gateway KEY to configure your board variables on balenaCloud.
 
 1. Go to balenaCloud dashboard and get into your LoRa gateway device site.
 2. Click "Device Variables" button on the left menu and add these variables.
 
-#### Balena LoRa Basics Station Service Variables
 
 Variable Name | Value | Description | Default
 ------------ | ------------- | ------------- | -------------
