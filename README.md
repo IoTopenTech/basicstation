@@ -54,20 +54,12 @@ If you are a balena CLI expert, feel free to use balena CLI.
 
 The LoRa gateways are manufactured with a unique 64 bits (8 bytes) identifier, called EUI, which can be used to register the gateway on The Things Network. To get the EUI from your board it’s important to know the Ethernet MAC address of it. The TTN EUI will be the Ethernet mac address (6 bytes), which is unique, expanded with 2 more bytes (FFFE). This is a standard way to increment the MAC address from 6 to 8 bytes.
 
-To get the Ethernet mac address of your board go to your balenaCloud dashboard. Go to the terminal box and click "Select a target", then “HostOS”. Once you are inside the shell, type:
+To get the EUI, get into the Logs box and filter by contains "EUI", there it should appear your EUI. In case that doesn't work. Go to the terminal box and click "Select a target", then “HostOS”. Once you are inside the shell, type:
 
-```cat /sys/class/net/eth0/address ```
+```cat /sys/class/net/eth0/address | sed -r 's/[:]+//g' | awk '{print $1"FFFE"}' ```
 
-See an example below.
+Copy the result and you are ready to register your gateway with this EUI.
 
-```
-// original mac address
-b8:27:eb:f0:4f:10
-// delete the :
-b827ebf04f10
-// add FFFE
-b827ebFFFEf04f10
-```
 
 ### Configure your The Things Network gateway
 
