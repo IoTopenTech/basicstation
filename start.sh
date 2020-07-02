@@ -13,19 +13,21 @@ TC_URI=${TC_URI:-"wss://lns.eu.thethings.network:443"}
 TC_TRUST=${TC_TRUST:-$(curl https://letsencrypt.org/certs/trustid-x3-root.pem.txt)}
 
 # Introduce the EUI from the mac address as a balenaCloud TAG
-TAG_KEY= "TTN_EUI"
-TTN_EUI= $(cat /sys/class/net/eth0/address | sed -r 's/[:]+//g' | sed -e 's#\(.\{6\}\)\(.*\)#\1FFFE\2#g')
+TAG_KEY="EUI"
+TTN_EUI=$(cat /sys/class/net/eth0/address | sed -r 's/[:]+//g' | sed -e 's#\(.\{6\}\)\(.*\)#\1FFFE\2#g')
+
+echo $TTN_EUI
 
 ID=$(curl -sX GET "https://api.balena-cloud.com/v5/device?\$filter=uuid%20eq%20'$BALENA_DEVICE_UUID'" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer $BALENA_API_KEY" | \
 jq ".d | .[0] | .id")
 
-curl -sX POST \
+TAG=$(curl -sX POST \
 "https://api.balena-cloud.com/v5/device_tag" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer $BALENA_API_KEY" \
---data "{ \"device\": \"$ID\", \"tag_key\": \"$TAG_KEY\", \"value\": \"$TTN_EUI\" }" > /dev/null
+--data "{ \"device\": \"$ID\", \"tag_key\": \"$TAG_KEY\", \"value\": \"$TTN_EUI\" }" > /dev/null)
 
 
 GW_RESET_PIN=${GW_RESET_PIN:-11}
